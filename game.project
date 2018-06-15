@@ -1,0 +1,45 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[project]
+title = iPhoneXSafearea
+
+[ios]
+bundle_identifier = com.defold.examples.iPhoneXSafearea
+launch_image_320x480 = /main/launch_images/ios_launch_320x480.png
+launch_image_640x960 = /main/launch_images/ios_launch_640x960.png
+launch_image_640x1136 = /main/launch_images/ios_launch_640x1136.png
+launch_image_750x1334 = /main/launch_images/ios_launch_750x1334.png
+launch_image_1334x750 = /main/launch_images/ios_launch_1334x750.png
+launch_image_768x1024 = /main/launch_images/ios_launch_768x1024.png
+launch_image_1536x2048 = /main/launch_images/ios_launch_1536x2048.png
+launch_image_1024x768 = /main/launch_images/ios_launch_1024x768.png
+launch_image_1242x2208 = /main/launch_images/ios_launch_1242x2208.png
+launch_image_2208x1242 = /main/launch_images/ios_launch_2208x1242.png
+launch_image_2048x1536 = /main/launch_images/ios_launch_2048x1536.png
+launch_image_2048x2732 = /main/launch_images/ios_launch_2048x2732.png
+launch_image_2732x2048 = /main/launch_images/ios_launch_2732x2048.png
+launch_image_1125x2436 = /main/launch_images/ios_launch_1125x2436.png
+launch_image_2436x1125 = /main/launch_images/ios_launch_2436x1125.png
+
+[android]
+package = com.defold.examples.iPhoneXSafearea
+
+[osx]
+bundle_identifier = com.defold.examples.iPhoneXSafearea
+
+[display]
+width = 720
+height = 1280
+dynamic_orientation = 1
+
+[safearea]
+background_red = 1.0
+background_green = 1.0
+background_blue = 0.0
+
+[library]
+include_dirs = safearea
