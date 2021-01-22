@@ -40,6 +40,8 @@ dynamic_orientation = 1
 background_red = 1.0
 background_green = 1.0
 background_blue = 0.0
+resize_game_view = 1
 
 [library]
 include_dirs = safearea
+
