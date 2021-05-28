@@ -1,10 +1,15 @@
-[![Actions Status Alpha](https://github.com/defold/extension-firebase-analytics/actions/workflows/bob.yml/badge.svg)](https://github.com/defold/extension-firebase-analytics/actions)
-
 # SafeArea
 
 Simple native extension library for Defold that will change the view/render of a game to fit into the safe area on newer iPhones.
 
-## Usage
+## Installation
+To use this library in your Defold project, add the following URL to your `game.project` dependencies:
+
+[https://github.com/defold/extension-safearea/archive/master.zip](https://github.com/defold/extension-safearea/archive/master.zip)
+
+We recommend using a link to a zip file of a [specific release](https://github.com/defold/extension-safearea/releases).
+
+## Usage:
 
 ### Easy mode (no change to your project)
 
