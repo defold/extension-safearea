@@ -5,10 +5,10 @@ main_collection = /main/main.collectionc
 shared_state = 1
 
 [project]
-title = iPhoneXSafearea
+title = Safearea
 
 [ios]
-bundle_identifier = com.defold.examples.iPhoneXSafearea
+bundle_identifier = com.defold.examples.Safearea
 launch_image_320x480 = /main/launch_images/ios_launch_320x480.png
 launch_image_640x960 = /main/launch_images/ios_launch_640x960.png
 launch_image_640x1136 = /main/launch_images/ios_launch_640x1136.png
@@ -26,7 +26,7 @@ launch_image_1125x2436 = /main/launch_images/ios_launch_1125x2436.png
 launch_image_2436x1125 = /main/launch_images/ios_launch_2436x1125.png
 
 [android]
-package = com.defold.examples.iPhoneXSafearea
+package = com.defold.examples.Safearea
 
 [osx]
 bundle_identifier = com.defold.examples.iPhoneXSafearea
