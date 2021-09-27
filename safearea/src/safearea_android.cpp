@@ -11,6 +11,7 @@ void ResizeGameView(float* bg_color)
 
 void GetInsets(Insets* insets)
 {
+    // API is avaliable on Android 9.0+ (API 28+)
     if (android_get_device_api_level() < 28)
     {
         return;
