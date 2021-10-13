@@ -31,19 +31,22 @@ void safeareans::ResizeGameView(float* bg_color) {
     }
 }
 
-void safeareans::GetInsets(Insets* insets) {
+safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
     UIView* glview = (UIView*)dmGraphics::GetNativeiOSUIView();
 
     // API and usage only available on iOS 11 and above.
     if ([glview respondsToSelector: @selector(safeAreaInsets)]) {
-        UIEdgeInsets viewInsets = glview.safeAreaInsets;
-        CGFloat scale = glview.layer.contentsScale;
-
-        insets->bottom = viewInsets.bottom * scale;
-        insets->left = viewInsets.left * scale;
-        insets->right = viewInsets.right * scale;
-        insets->top = viewInsets.top * scale;
+        return STATUS_NOT_AVAILABLE;
     }
+    
+    UIEdgeInsets viewInsets = glview.safeAreaInsets;
+    CGFloat scale = glview.layer.contentsScale;
+
+    insets->bottom = viewInsets.bottom * scale;
+    insets->left = viewInsets.left * scale;
+    insets->right = viewInsets.right * scale;
+    insets->top = viewInsets.top * scale;
+    return STATUS_OK;
 }
 
 #endif // DM_PLATFORM_IOS
