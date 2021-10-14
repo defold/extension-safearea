@@ -39,8 +39,13 @@ This will disable the "Easy mode" behaviour and make the game view fill the whol
 Now you can use `safearea.get_insets()` to query the extent of the safe area:
 
 ```lua
-local insets = safearea.get_insets()
+local insets, status = safearea.get_insets()
 
 -- The amount of "unsafe" space against each edge of the screen, in pixels
 print(insets.top, insets.right, insets.bottom, insets.left)
+
+-- Status is one of the following values:
+-- safearea.STATUS_OK - value is avaliable and valid, you may fully trust it.
+-- safearea.STATUS_NOT_AVAILABLE - functionality isn't available on this platform or OS version. Values will be 0
+-- safearea.STATUS_NOT_READY_YET - values aren't ready yet. Depends on platform and OS it may take a while (usually up to 200ms) to be ready, check later. Values will be 0
 ```

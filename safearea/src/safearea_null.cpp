@@ -5,7 +5,8 @@
 void safeareans::ResizeGameView(float* bg_color) {
 }
 
-void safeareans::GetInsets(Insets* insets) {
+safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
+	return STATUS_NOT_AVAILABLE;
 }
 
 #endif // !defined(DM_PLATFORM_IOS) && !defined(DM_PLATFORM_ANDROID)

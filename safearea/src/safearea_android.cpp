@@ -9,12 +9,12 @@ void ResizeGameView(float* bg_color)
 {
 }
 
-void GetInsets(Insets* insets)
+SafeAreaStatus GetInsets(Insets* insets)
 {
     // API is avaliable on Android 9.0+ (API 28+)
     if (android_get_device_api_level() < 28)
     {
-        return;
+        return STATUS_NOT_AVAILABLE;
     }
 
     ThreadAttacher attacher;
@@ -33,11 +33,17 @@ void GetInsets(Insets* insets)
     cls = class_loader.load("android/view/WindowInsets");
     jobject cutouts = env->CallObjectMethod(jinsets, env->GetMethodID(cls, "getDisplayCutout", "()Landroid/view/DisplayCutout;"));
 
+    if (!cutouts)
+    {
+        return STATUS_NOT_READY_YET;
+    }
+    
     cls = class_loader.load("android/view/DisplayCutout");
     insets->bottom = (float)env->CallIntMethod(cutouts, env->GetMethodID(cls, "getSafeInsetBottom", "()I"));
     insets->left = (float)env->CallIntMethod(cutouts, env->GetMethodID(cls, "getSafeInsetLeft", "()I"));
     insets->right = (float)env->CallIntMethod(cutouts, env->GetMethodID(cls, "getSafeInsetRight", "()I"));
     insets->top = (float)env->CallIntMethod(cutouts, env->GetMethodID(cls, "getSafeInsetTop", "()I"));
+    return STATUS_OK;
 }
 
 } // namespace

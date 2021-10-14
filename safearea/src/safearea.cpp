@@ -10,6 +10,8 @@ static dmExtension::Result AppInitializeSafearea(dmExtension::AppParams* params)
 
 static int GetInsets(lua_State* L)
 {
+    DM_LUA_STACK_CHECK(L, 2);
+
     safeareans::Insets insets = {
         .bottom = 0.0f,
         .left = 0.0f,
@@ -17,7 +19,7 @@ static int GetInsets(lua_State* L)
         .top = 0.0f,
     };
 
-    safeareans::GetInsets(&insets);
+    safeareans::SafeAreaStatus status = safeareans::GetInsets(&insets);
 
     lua_newtable(L);
     lua_pushnumber(L, insets.bottom);
@@ -29,12 +31,14 @@ static int GetInsets(lua_State* L)
     lua_pushnumber(L, insets.top);
     lua_setfield(L, -2, "top");
 
-    return 1;
+    lua_pushnumber(L, status);
+
+    return 2;
 }
 
 
 static const luaL_reg SafeArea_methods[] =
-{
+{   
     {"get_insets", GetInsets},
     {0, 0}
 };
@@ -43,6 +47,17 @@ static void LuaInit(lua_State* L)
 {
     int top = lua_gettop(L);
     luaL_register(L, "safearea", SafeArea_methods);
+
+#define SETCONSTANT(name, val) \
+    lua_pushnumber(L, (lua_Number) val); \
+    lua_setfield(L, -2, #name);\
+
+    SETCONSTANT(STATUS_OK, safeareans::STATUS_OK)
+    SETCONSTANT(STATUS_NOT_AVAILABLE, safeareans::STATUS_NOT_AVAILABLE)
+    SETCONSTANT(STATUS_NOT_READY_YET, safeareans::STATUS_NOT_READY_YET)
+
+#undef SETCONSTANT
+    
     lua_pop(L, 1);
     assert(top == lua_gettop(L));
 }

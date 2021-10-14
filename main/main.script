@@ -1,7 +1,21 @@
 function init(self)
+    self.update_counter = 0
     msg.post("@render:", "clear_color", {color = vmath.vector4(1,0,0,1) })
-    pprint(safearea.get_insets())
+    self.safearea, self.safearea_status = safearea.get_insets()
+    pprint("SAFE_AREA in init():", self.safearea, self.safearea_status)
     window.set_listener(function ()
-        pprint(safearea.get_insets())
+        pprint("SAFE_AREA in window listener:", safearea.get_insets())
     end)
+end
+
+function update(self)
+    if self.safearea_status == safearea.STATUS_NOT_READY_YET then
+        self.update_counter = self.update_counter + 1
+        print("Update:", self.update_counter)
+        self.safearea, self.safearea_status = safearea.get_insets()
+        print("Status:", self.safearea_status)
+        if self.safearea_status == safearea.STATUS_OK then
+            pprint("SAFE_AREA in update:", self.safearea)
+        end
+    end
 end
