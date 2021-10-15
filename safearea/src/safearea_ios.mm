@@ -35,7 +35,7 @@ safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
     UIView* glview = (UIView*)dmGraphics::GetNativeiOSUIView();
 
     // API and usage only available on iOS 11 and above.
-    if ([glview respondsToSelector: @selector(safeAreaInsets)]) {
+    if (![glview respondsToSelector: @selector(safeAreaInsets)]) {
         return STATUS_NOT_AVAILABLE;
     }
     
