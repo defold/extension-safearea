@@ -1,6 +1,13 @@
+---
+title: SafeArea extension
+brief: Extension to change the view of a game to fit into the safe area on iOS and Android devices with notch.
+---
+
 # SafeArea
 
-Simple native extension library for Defold that will change the view/render of a game to fit into the safe area on iPhones and Android(API 28+) with notch.
+Simple native extension library for Defold that will change the view/ of a game to fit into the safe area on iOS and Android devices with notch.
+
+NOTE: Works on Android phones with API 28+.
 
 ## Installation
 To use this library in your Defold project, add the following URL to your `game.project` dependencies:
