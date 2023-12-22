@@ -9,6 +9,10 @@ void ResizeGameView(float* bg_color)
 {
 }
 
+void SetBackgroundColor(float x, float y, float z, float w) 
+{
+}
+
 SafeAreaStatus GetInsets(Insets* insets)
 {
     // API is avaliable on Android 9.0+ (API 28+)

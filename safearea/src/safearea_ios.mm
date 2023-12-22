@@ -49,4 +49,13 @@ safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
     return STATUS_OK;
 }
 
+void safeareans::SetBackgroundColor(float x, float y, float z, float w) 
+{
+    UIView* glview = (UIView*)dmGraphics::GetNativeiOSUIView();
+    UIView* view = (UIView*)glview.superview;
+    if ([view respondsToSelector: @selector(safeAreaLayoutGuide)]) {
+        view.backgroundColor = [UIColor colorWithRed: x green: y blue: z alpha: w];
+    }
+}
+
 #endif // DM_PLATFORM_IOS

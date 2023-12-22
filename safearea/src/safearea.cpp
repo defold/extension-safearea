@@ -36,10 +36,21 @@ static int GetInsets(lua_State* L)
     return 2;
 }
 
+static int SetBackgroundColor(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 0);
+
+    dmVMath::Vector4* value = dmScript::CheckVector4(L, 1);
+
+    safeareans::SetBackgroundColor(value->getX(), value->getY(), value->getZ(), value->getW());
+    return 0;
+}
+
 
 static const luaL_reg SafeArea_methods[] =
 {   
     {"get_insets", GetInsets},
+    {"set_background_color", SetBackgroundColor},
     {0, 0}
 };
 
