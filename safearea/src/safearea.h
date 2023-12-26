@@ -14,4 +14,5 @@ namespace safeareans
 
     void ResizeGameView(float* bg_color);
     SafeAreaStatus GetInsets(Insets* insets);
+    void SetBackgroundColor(float x, float y, float z, float w);
 }

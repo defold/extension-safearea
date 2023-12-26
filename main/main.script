@@ -6,6 +6,11 @@ function init(self)
     window.set_listener(function ()
         pprint("SAFE_AREA in window listener:", safearea.get_insets())
     end)
+
+    timer.delay(1, false, function()
+        -- iOS only
+        safearea.set_background_color(vmath.vector4(0,0,0,0))
+    end)
 end
 
 function update(self)

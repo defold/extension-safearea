@@ -31,6 +31,8 @@ background_blue = 0.0
 ```
 This would make the background outside the safe area be **green**. (The default background color is black).
 
+It's also possible to change background color in runtime using `safearea.set_background_color(vmath.vector4())`.
+
 
 ### Custom mode
 
@@ -50,6 +52,9 @@ local insets, status = safearea.get_insets()
 
 -- The amount of "unsafe" space against each edge of the screen, in pixels
 print(insets.top, insets.right, insets.bottom, insets.left)
+
+-- iOS only
+safearea.set_background_color(vmath.vector4(0,0,0,0))
 
 -- Status is one of the following values:
 -- safearea.STATUS_OK - value is avaliable and valid, you may fully trust it.

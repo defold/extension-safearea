@@ -7,6 +7,17 @@
 
 #*****************************************************************************************************
 
+    - name: set_background_color
+      type: function
+      desc: set background color in runtime
+
+      parameters:
+      - name: color
+        type: vector4
+        desc: Color will be used as background color.
+
+
+#*****************************************************************************************************
     - name: get_insets
       type: function
       desc: returns table with top, left, right, bottom values of insets and status
