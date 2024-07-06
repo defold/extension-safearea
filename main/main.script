@@ -24,6 +24,7 @@ function update(self)
         if self.safearea_status == safearea.STATUS_OK then
             pprint("SAFE_AREA in update:", self.safearea)
             pprint("CORNERS in update:", self.corners)
+            -- https://developer.android.com/develop/ui/views/layout/insets/rounded-corners
             for key, value in pairs(self.corners) do
                 local offset = value * math.sin(math.rad(45))
                 print("Offset "..key.." : "..offset)

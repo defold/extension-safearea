@@ -59,6 +59,7 @@ local corners, status = safearea.get_corners_radius()
 -- The radius for rounded corners of the device screen
 print(corners.bottom_left, corners.bottom_right, corners.top_left, corners.top_right)
 -- Calculate offset based on radius
+-- https://developer.android.com/develop/ui/views/layout/insets/rounded-corners
 for key, value in pairs(corners) do
     local offset = value * math.sin(math.rad(45))
     print("Offset "..key.." : "..offset)
