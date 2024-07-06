@@ -36,6 +36,34 @@ static int GetInsets(lua_State* L)
     return 2;
 }
 
+static int GetCornersRadius(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 2);
+
+    safeareans::Corners corners = {
+        .bottom_left = 0.0f,
+        .bottom_right = 0.0f,
+        .top_left = 0.0f,
+        .top_right = 0.0f,
+    };
+
+    safeareans::SafeAreaStatus status = safeareans::GetCornersRadius(&corners);
+
+    lua_newtable(L);
+    lua_pushnumber(L, corners.bottom_left);
+    lua_setfield(L, -2, "bottom_left");
+    lua_pushnumber(L, corners.bottom_right);
+    lua_setfield(L, -2, "bottom_right");
+    lua_pushnumber(L, corners.top_left);
+    lua_setfield(L, -2, "top_left");
+    lua_pushnumber(L, corners.top_right);
+    lua_setfield(L, -2, "top_right");
+
+    lua_pushnumber(L, status);
+
+    return 2;
+}
+
 static int SetBackgroundColor(lua_State* L)
 {
     DM_LUA_STACK_CHECK(L, 0);
@@ -50,6 +78,7 @@ static int SetBackgroundColor(lua_State* L)
 static const luaL_reg SafeArea_methods[] =
 {   
     {"get_insets", GetInsets},
+    {"get_corners_radius", GetCornersRadius},
     {"set_background_color", SetBackgroundColor},
     {0, 0}
 };
