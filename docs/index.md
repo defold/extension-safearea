@@ -53,6 +53,17 @@ local insets, status = safearea.get_insets()
 -- The amount of "unsafe" space against each edge of the screen, in pixels
 print(insets.top, insets.right, insets.bottom, insets.left)
 
+-- Android 12.0+ only
+local corners, status = safearea.get_corners_radius()
+
+-- The radius for rounded corners of the device screen
+print(corners.bottom_left, corners.bottom_right, corners.top_left, corners.top_right)
+-- Calculate offset based on radius
+for key, value in pairs(corners) do
+    local offset = value * math.sin(math.rad(45))
+    print("Offset "..key.." : "..offset)
+end
+
 -- iOS only
 safearea.set_background_color(vmath.vector4(0,0,0,0))
 
