@@ -12,7 +12,7 @@ safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
     return STATUS_NOT_AVAILABLE;
 }
 
-SafeAreaStatus safeareans::GetCornersRadius(Corners* corners){
+safeareans::SafeAreaStatus safeareans::GetCornersRadius(Corners* corners){
     return STATUS_NOT_AVAILABLE;
 }
 
