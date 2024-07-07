@@ -18,9 +18,17 @@ function update(self)
         self.update_counter = self.update_counter + 1
         print("Update:", self.update_counter)
         self.safearea, self.safearea_status = safearea.get_insets()
-        print("Status:", self.safearea_status)
+        self.corners, self.corners_status = safearea.get_corners_radius()
+        print("Safearea Status:", self.safearea_status)
+        print("Corners Status:", self.corners_status)
         if self.safearea_status == safearea.STATUS_OK then
             pprint("SAFE_AREA in update:", self.safearea)
+            pprint("CORNERS in update:", self.corners)
+            -- https://developer.android.com/develop/ui/views/layout/insets/rounded-corners
+            for key, value in pairs(self.corners) do
+                local offset = value * math.sin(math.rad(45))
+                print("Offset "..key.." : "..offset)
+            end
         end
     end
 end

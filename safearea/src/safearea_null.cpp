@@ -12,4 +12,8 @@ safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
     return STATUS_NOT_AVAILABLE;
 }
 
+SafeAreaStatus safeareans::GetCornersRadius(Corners* corners){
+    return STATUS_NOT_AVAILABLE;
+}
+
 #endif // !defined(DM_PLATFORM_IOS) && !defined(DM_PLATFORM_ANDROID)

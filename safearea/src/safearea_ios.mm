@@ -49,6 +49,10 @@ safeareans::SafeAreaStatus safeareans::GetInsets(Insets* insets) {
     return STATUS_OK;
 }
 
+safeareans::SafeAreaStatus safeareans::GetCornersRadius(Corners* corners){
+    return STATUS_NOT_AVAILABLE;
+}
+
 void safeareans::SetBackgroundColor(float x, float y, float z, float w) 
 {
     UIView* glview = (UIView*)dmGraphics::GetNativeiOSUIView();

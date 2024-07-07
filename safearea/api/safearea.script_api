@@ -27,6 +27,15 @@
           type: table
 
 #*****************************************************************************************************
+    - name: get_corners_radius
+      type: function
+      desc: returns a table with `top_left`, `top_right`, `bottom_left`, and `bottom_right` values of rounded corners and status.
+      
+      returns:
+        - name: corners
+          type: table
+
+#*****************************************************************************************************
 
     - name: STATUS_OK
       type: number
